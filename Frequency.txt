@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <limits.h>
+
+#define MAX 10000 // Assuming input integers are between 1 and 10000
+
+int main() {
+    int n;
+    printf("Enter the number of integers: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    int frequency[MAX + 1] = {0}; // To store the frequency of each integer
+
+    printf("Enter the integers:\n");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+        frequency[arr[i]]++;
+    }
+
+    int min_frequency = INT_MAX;
+    int result = INT_MAX;
+
+    for (int i = 1; i <= MAX; i++) {
+        if (frequency[i] > 0 && frequency[i] < min_frequency) {
+            min_frequency = frequency[i];
+            result = i;
+        } else if (frequency[i] > 0 && frequency[i] == min_frequency && i < result) {
+            result = i;
+        }
+    }
+
+    printf("The integer that appears the least number of times is: %d\n", result);
+
+    return 0;
+}

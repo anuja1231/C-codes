@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int isValidTriangle(float a, float b, float c) {
+    if (a + b > c && a + c > b && b + c > a) {
+        return 1;
+    }
+    return 0; // Invalid triangle
+}
+
+int main() {
+    float a, b, c;
+
+    printf("Enter the lengths of the three sides of the triangle:\n");
+    printf("Side 1: ");
+    scanf("%f", &a);
+    printf("Side 2: ");
+    scanf("%f", &b);
+    printf("Side 3: ");
+    scanf("%f", &c);
+
+    if (isValidTriangle(a, b, c)) {
+        printf("The triangle is valid.\n");
+    } else {
+        printf("The triangle is not valid.\n");
+    }
+
+    return 0;
+}

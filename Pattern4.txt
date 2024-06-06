@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+ 
+    int rows = 9;
+
+ 
+    for (int i = 1; i <= rows; i++) {
+     
+        if (i == 1 || i == rows - 1) {
+            printf(" *\n");
+        } else if (i == 5) {
+            printf("*\n");
+        } else if (i == 2 || i == 3 || i == 4 || i == 6 || i == 7) {
+            printf("**\n");
+        } else if (i == rows) {
+            printf(" *\n");
+        }
+    }
+    
+    return 0;
+}

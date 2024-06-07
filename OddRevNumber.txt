@@ -1,0 +1,20 @@
+#include <stdio.h>
+void printOddNumbersReverse(int n) {
+    if (n < 1) {
+        return;
+    }
+    int currentOdd = 2 * n - 1;
+    printf("%d ", currentOdd);
+    printOddNumbersReverse(n - 1);
+}
+
+int main() {
+    int n;
+
+    printf("Enter the value of N: ");
+    scanf("%d", &n);
+
+    printOddNumbersReverse(n);
+
+    return 0;
+}

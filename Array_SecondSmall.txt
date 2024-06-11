@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <limits.h>
+
+int main() {
+    int n;
+    printf("Enter the size of the array: ");
+    scanf("%d", &n);
+
+    if (n < 2) {
+        printf("Array size should be at least 2.\n");
+        return 1;
+    }
+
+    int arr[n];
+    printf("Enter %d elements of the array:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    int first_smallest = INT_MAX, second_smallest = INT_MAX;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] < first_smallest) {
+            second_smallest = first_smallest;
+            first_smallest = arr[i];
+        } else if (arr[i] < second_smallest && arr[i] != first_smallest) {
+            second_smallest = arr[i];
+        }
+    }
+    if (second_smallest == INT_MAX) {
+        printf("There is no second smallest element.\n");
+    } else {
+        printf("The second smallest element is %d.\n", second_smallest);
+    }
+
+    return 0;
+}

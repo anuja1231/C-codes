@@ -1,0 +1,35 @@
+#include <stdio.h>
+#define SIZE 3
+void printMatrix(int matrix[SIZE][SIZE]);
+
+int main() {
+    int matrix[SIZE][SIZE], transpose[SIZE][SIZE];
+    printf("Enter elements of the %dx%d matrix:\n", SIZE, SIZE);
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            printf("Enter element [%d][%d]: ", i, j);
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            transpose[j][i] = matrix[i][j];
+        }
+    }
+
+    printf("Original matrix:\n");
+    printMatrix(matrix);
+    printf("Transpose of the matrix:\n");
+    printMatrix(transpose);
+
+    return 0;
+}
+
+void printMatrix(int matrix[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
